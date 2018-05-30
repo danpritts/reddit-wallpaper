@@ -27,7 +27,7 @@ Try It
         cd reddit-wallpaper
         ./reddit-wallpaper
 
-3.  reddit-wallpaper will download the last week's top voted images with a minimum resolution of 1024x768 (though most are higher red), to `~/reddit-wallpaper`.
+3.  reddit-wallpaper will download the last week's top voted images with a minimum resolution of 1024x768 (though most are higher res), and a minimum aspect ratio of 4:3, to `~/reddit-wallpaper`.
 
 4.  You can now set your desktop wallpaper to cycle through the images in this folder
 
@@ -60,6 +60,12 @@ If you'd like to customize reddit-background so that it chooses images images fr
 
     # Filter out any images with resolution below this
     min_resolution=1280x1024
+
+    # Filter out any images with aspect ratio below this
+    # this is the product of dividing horizontal by vertical resolution
+    # 4:3 = 1.33333333
+    # 16:9 = 1.77777777
+    min_aspect=1.3
 
     # Directory in which to download images
     download_dir=~/reddit-wallpaper
@@ -128,6 +134,10 @@ You can stipulate where to download the images to by using:
 If you'd like to adjust the minimum resolution of the images:
 
     reddit-wallpaper --min-resolution 1920x1080
+
+You can adjust the minimum aspect ratio:
+
+    reddit-wallpaper --min-aspect 1.7
 
 ### Attribution and License
 
